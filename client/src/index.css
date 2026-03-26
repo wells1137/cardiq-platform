@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-up: #16a34a;
+  --color-down: #dc2626;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  :root {
+    /* 极简蓝白运动风 */
+    --background: 210 20% 98%;        /* #F8F9FA 浅灰白 */
+    --foreground: 220 40% 10%;        /* #0A1628 深海军蓝 */
+    --card: 0 0% 100%;                /* #FFFFFF 纯白卡片 */
+    --card-foreground: 220 40% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 10%;
+    --primary: 217 91% 52%;           /* #1D6FEB 电光蓝 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 32% 91%;         /* #DDE6F0 浅蓝灰 */
+    --secondary-foreground: 220 40% 20%;
+    --muted: 210 20% 95%;             /* #EEF1F5 */
+    --muted-foreground: 215 20% 50%;  /* #6B7FA3 */
+    --accent: 217 91% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 88%;            /* #D0DCE8 */
+    --input: 214 32% 88%;
+    --ring: 217 91% 52%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    background-color: #F8F9FA;
+    color: #0A1628;
+    min-height: 100vh;
+    font-family: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: rgba(29, 111, 235, 0.18);
+    color: #0A1628;
+  }
+
+  /* 滚动条美化 */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D0DCE8;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A8BDD4;
+  }
+}
+
+@layer utilities {
+  /* 极简卡片 */
+  .card-clean {
+    background: #ffffff;
+    border: 1px solid #D0DCE8;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(10, 22, 40, 0.06);
+  }
+
+  /* 主色蓝强调卡片 */
+  .card-accent {
+    background: linear-gradient(135deg, #1D6FEB 0%, #2563eb 100%);
+    border-radius: 12px;
+    color: white;
+  }
+
+  /* 数据标签 */
+  .badge-up {
+    background: #dcfce7;
+    color: #16a34a;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  .badge-down {
+    background: #fee2e2;
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  .badge-neutral {
+    background: #f1f5f9;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  /* 运动风分割线 */
+  .divider-sport {
+    height: 2px;
+    background: linear-gradient(90deg, #1D6FEB, transparent);
+    border: none;
+  }
+
+  /* 数字字体 */
+  .font-data {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  /* 侧边栏激活状态 */
+  .nav-active {
+    background: #EEF4FF;
+    color: #1D6FEB;
+    border-left: 3px solid #1D6FEB;
+  }
+
+  /* 页面标题区 */
+  .page-header {
+    border-bottom: 1px solid #D0DCE8;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 数据表格行 */
+  .table-row-hover:hover {
+    background: #F0F5FF;
+  }
+
+  /* 扫描线动画 */
+  .animate-scan {
+    animation: scan 2s linear infinite;
+  }
+
+  /* 渐变边框卡片 */
+  .card-gradient-border {
+    background: white;
+    border-radius: 16px;
+    position: relative;
+  }
+  .card-gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, #1D6FEB22, #D0DCE8, #1D6FEB22);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* 蓝色光晕按钮 */
+  .btn-primary-glow {
+    background: #1D6FEB;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(29, 111, 235, 0.3);
+    transition: all 0.2s ease;
+  }
+  .btn-primary-glow:hover {
+    background: #1558c7;
+    box-shadow: 0 6px 20px rgba(29, 111, 235, 0.4);
+    transform: translateY(-1px);
+  }
+  .btn-primary-glow:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(29, 111, 235, 0.3);
+  }
+
+  /* 数字跳动效果 */
+  .number-highlight {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'tnum';
+  }
+
+  /* 卡片悬停提升 */
+  .card-hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(10, 22, 40, 0.1);
+  }
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(100%); opacity: 1; }
+}

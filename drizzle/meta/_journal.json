@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1774435774946,
+      "tag": "0000_melodic_ben_grimm",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1774435942579,
+      "tag": "0001_perfect_namora",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1774436939501,
+      "tag": "0002_greedy_karma",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1774438095887,
+      "tag": "0003_youthful_kat_farrell",
+      "breakpoints": true
+    }
+  ]
+}
